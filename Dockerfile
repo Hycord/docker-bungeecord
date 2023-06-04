@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=eclipse-temurin:17
+ARG BASE_IMAGE=eclipse-temurin:19
 FROM ${BASE_IMAGE}
 
 VOLUME ["/server"]
