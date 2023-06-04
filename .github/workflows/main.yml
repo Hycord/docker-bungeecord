@@ -5,15 +5,13 @@ on:
     branches:
       - master
       - test/*
-    tags:
-      - "[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
   build:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        variant: [latest, java17, java8, java11]
+        variant: [latest, java17, java8, java11, java19]
         include:
           - variant: latest
             baseImage: eclipse-temurin:17-focal
@@ -27,6 +25,9 @@ jobs:
           - variant: java11
             baseImage: adoptopenjdk:11-jre-hotspot-focal
             tagPrefix: java11-
+          - variant: java19
+            baseImage: eclips-temurin:19-focal
+            tagPrefix: java19-
 
     steps:
     - uses: actions/checkout@v3
